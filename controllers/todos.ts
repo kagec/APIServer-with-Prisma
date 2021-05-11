@@ -1,12 +1,17 @@
 import {todo} from '../models/todos';
-import * as express from 'express';
+import type {Request,Response} from 'express';
 
-export module controller {
-	export async function getTodos(req:express.Request, res:express.Response) {
-		const storedTodos = await todo.findAll();
-		res.status(200).json(storedTodos);
-	}	
-	export async function postTodo(req:express.Request, res:express.Response) {
+
+export const controller = {
+	 async getTodos(req:Request, res:Response) {
+		 try {
+			const storedTodos = await todo.findAll();
+			res.status(200).json(storedTodos);
+		 } catch (e) {
+			res.status(400).json({message: e.message});
+		 }
+	}	,
+	 async postTodo(req:Request, res:Response) {
 		try {
 			const {title, body} = req.body;
 			const createdTodo = await todo.create({title, body});
@@ -15,8 +20,8 @@ export module controller {
 		} catch (e) {
 			res.status(400).json({message: e.message});
 		}
-	}
-	export async function putTodo(req:express.Request, res:express.Response) {
+	},
+	 async putTodo(req:Request, res:Response) {
 		const id = req.params.id;
 		const {title, body} = req.body;
 		const parsedId = parseInt(id, 10);
@@ -32,8 +37,8 @@ export module controller {
 		} catch (e) {
 			res.status(400).json({message: e.message});
 		}
-	}
-	export async function deleteTodo(req: express.Request, res: express.Response) {
+	},
+	 async deleteTodo(req: Request, res: Response) {
 		const id = req.params.id;
 		const parsedId = parseInt(id, 10);
 
@@ -44,5 +49,5 @@ export module controller {
 		} catch (e) {
 			res.status(400).json({message: e.message});
 		}
-	}
+	},
 }

@@ -1,13 +1,19 @@
 import { PrismaClient } from '@prisma/client'
-import { TodoInput, UpdateData } from '../src/@types/global';
+// import { TodoInput, UpdateData } from '../src/@types/global';
 const prisma = new PrismaClient()
+import type { Prisma } from '@prisma/client';
 
-export module todo {
-	export async function findAll() {
+// Omitは対象の型から不要な型を除外できる
+type CreateTodo = Omit<Prisma.TodoCreateInput, 'createdAt' | 'updatedAt'>;
+type UpdateTodo = Omit<Prisma.TodoUpdateInput, 'createdAt' | 'updatedAt'> &
+  Prisma.TodoWhereUniqueInput;
+
+export const todo = {
+	 async findAll() {
 		const allTodo = await prisma.todo.findMany();
 		return allTodo;
-	}
-	export async function create(data:TodoInput) {
+	},
+	 async create(data:CreateTodo) {
 		if (!data.title) 
 			throw new Error('titleは必須です');
 		if (!data.body)
@@ -15,22 +21,24 @@ export module todo {
 
 		const todo = await prisma.todo.create({
 			data:{
-				title:data.title,
-				body: data.body,
+				...data,
+				createdAt: new Date(),
 				updatedAt: new Date(),
 			},
 		})
 
 		return todo;
-	}
-	export async function update(data:{id:number, title:string, body:string}) {
-		if (!data.id || data.id < 1)
+	},
+	 async update(data:UpdateTodo) {
+		if (!data.id || data.id < 1){
 			throw new Error('idは必須です（1以上の数値）');			
-		if (!data.title)
+		}
+		if (!data.title){
 			throw new Error('titleは必須です');
-		if (!data.body)
+		}
+		if (!data.body){
 			throw new Error('bodyは必須です');
-		
+		}
 		const targetIndex = await prisma.todo.findUnique({
 			where: {
 				id: data.id,
@@ -44,6 +52,7 @@ export module todo {
 			data: {
 				title:data.title,
 				body:data.body,
+				updatedAt: new Date(),
 			},
 			where: {
 				id:data.id,
@@ -51,8 +60,8 @@ export module todo {
 		});
 		return todo;
 		
-	}
-	export async function remove(id:number) {
+	},
+	 async remove(id:number) {
 		if (!id || id < 1)
 			throw new Error('idは必須です（1以上の数値）');
 
@@ -72,5 +81,5 @@ export module todo {
 		});
 
 		return removedTodo;	
-	}
+	},
 }

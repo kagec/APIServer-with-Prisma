@@ -1,2 +1,4 @@
 node_modules
-.vscode
+.vscode/
+test/sample-prisma-jest/
+jest.config.ts

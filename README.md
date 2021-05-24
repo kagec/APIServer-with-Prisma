@@ -13,21 +13,21 @@
 
 1. 必要なパッケージをインストール
 
-	npm install
+	`npm install`
 
 1. データベースのインストール 
 
 	・ Ubuntu パッケージを更新します。
 
-	sudo apt update
+	```sudo apt update```
 
 	・ PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		
-	sudo apt install postgresql postgresql-contrib
+	```sudo apt install postgresql postgresql-contrib```
 
 	・ 管理者ユーザー postgres にパスワードを割り当てる
 
-	sudo passwd postgres
+	```sudo passwd postgres```
 
 
 1. データベースの設定

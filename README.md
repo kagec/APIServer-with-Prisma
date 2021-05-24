@@ -34,22 +34,22 @@
 
 	※後に Prisma (.env ファイル) の設定で必要になります (ユーザー名 ユーザーパスワード データベース名)
 
-	- postgres にアカウントを変更
+	1. postgres にアカウントを変更
 
 			sudo -i -u postgres
 
 		ターミナルが postgres@user のような Postgresプロンプトにかわる
 
-	- ユーザー作成	
+	1. ユーザー作成	
 
 			createuser -d -U postgres -P username
 
 		username に作りたいユーザー名を入力、その後ユーザーパスワードも入力する
 
-	(※このサンプルのデフォルト設定 ユーザー名 user パスワード user)
+		(※このサンプルのデフォルト設定 ユーザー名 user パスワード user)
 	 データベース作成　
 
-	- データベース作成
+	1. データベース作成
 
 			createdb databasename --encoding=UTF-8 --owner=username
 
@@ -57,7 +57,7 @@
 
 		(※このサンプルのデフォルト設定 データベース名 mydb ユーザー名 user)
 
-	- データベース作成完了
+	1. データベース作成完了
 	
 			exit 
 	
@@ -69,19 +69,19 @@
 
 1. Prisma の設定
 
-	- .env ファイルの設定
+	1. .env ファイルの設定
 	
-		- 上記 4. でデフォルト設定で設定した場合（変更なし）
+		1. 上記 4. でデフォルト設定で設定した場合（変更なし）
 
 			DATABASE_URL="postgresql://user:user@localhost:5432/mydb?schema=public"
 
-		- それ以外の場合
+		1. それ以外の場合
 
 			DATABASE_URL="postgresql://USERNAME:USERPASSWORD@localhost:5432/	DATABASENAME?``schema=public"
 
 			USERNAME USERPASSWORD DATABASENAME に上記 4. で設定した値を入力してください
 
-	- Prisma クライアントの設定 
+	1. Prisma クライアントの設定 
 
 			npx prisma migrate dev --name init
 
@@ -92,11 +92,11 @@
 
 
 1. サーバーの実行
-	- サーバー起動
+	1. サーバー起動
 
-			npm start
+		npm start
 
-	- POSTMAN 等を使用して http://localhost:8080/api/todos/ へいろいろリクエストを投げてみる
+	1. POSTMAN 等を使用して http://localhost:8080/api/todos/ へいろいろリクエストを投げてみる
 
 
 
@@ -109,11 +109,11 @@
 
 	※テストコード実行後テストが終了しない不具合があり原因がわからないので Ctrl+C 等で強制終了してください
 
-			npm test
+		npm test
 
 	で全部のテストを行います
 
-			npm test -- post-api-todos.test.ts
+		npm test -- post-api-todos.test.ts
 
 	でファイル名を指定して単体でテストを行います
 

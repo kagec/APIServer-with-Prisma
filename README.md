@@ -19,7 +19,7 @@
 
 	1. Ubuntu パッケージを更新します。
 
-		```sudo apt update```
+			```sudo apt update```
 
 	1. PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		

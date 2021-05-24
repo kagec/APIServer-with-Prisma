@@ -9,25 +9,25 @@
 
 1. リポジトリのクローンをする
 
-		```git clone https://github.com/kagec/APIServer-with-Prisma.git```
+		git clone https://github.com/kagec/APIServer-with-Prisma.git
 
 1. 必要なパッケージをインストール
 
-		```npm install```
+		npm install
 
 1. データベースのインストール 
 
 	1. Ubuntu パッケージを更新します。
 
-			```sudo apt update```
+		sudo apt update
 
 	1. PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		
-		```sudo apt install postgresql postgresql-contrib```
+		sudo apt install postgresql postgresql-contrib
 
 	1. 管理者ユーザー postgres にパスワードを割り当てる
 
-		```sudo passwd postgres```
+		sudo passwd postgres
 
 
 1. データベースの設定
@@ -36,13 +36,13 @@
 
 	- postgres にアカウントを変更
 
-		```sudo -i -u postgres```
+		sudo -i -u postgres
 
 	ターミナルが postgres@user のような Postgresプロンプトにかわる
 
 	- ユーザー作成	
 
-		```createuser -d -U postgres -P username```
+		createuser -d -U postgres -P username
 
 	username に作りたいユーザー名を入力、その後ユーザーパスワードも入力する
 
@@ -51,7 +51,7 @@
 
 	- データベース作成
 
-		```createdb databasename --encoding=UTF-8 --owner=username```
+		createdb databasename --encoding=UTF-8 --owner=username
 
 	databasename にデータベースの名前を入力、username には上記で作成したユーザー名を入力
 
@@ -59,11 +59,11 @@
 
 	- データベース作成完了
 	
-		```exit ```
+		exit 
 	
 	or 
 	
-		```Ctrl+D```
+		Ctrl+D
 	
 	を入力してPostgresプロンプトを終了
 
@@ -73,17 +73,17 @@
 	
 		- 上記 4. でデフォルト設定で設定した場合（変更なし）
 
-			```DATABASE_URL="postgresql://user:user@localhost:5432/mydb?schema=public"```
+			DATABASE_URL="postgresql://user:user@localhost:5432/mydb?schema=public"
 
 		- それ以外の場合
 
-			```DATABASE_URL="postgresql://USERNAME:USERPASSWORD@localhost:5432/	DATABASENAME?``schema=public"```
+			DATABASE_URL="postgresql://USERNAME:USERPASSWORD@localhost:5432/	DATABASENAME?``schema=public"
 
 			USERNAME USERPASSWORD DATABASENAME に上記 4. で設定した値を入力してください
 
 	- Prisma クライアントの設定 
 
-		```npx prisma migrate dev --name init```
+		npx prisma migrate dev --name init
 
 
 これでサーバーの実行準備は整ったと思います
@@ -94,7 +94,7 @@
 1. サーバーの実行
 	- サーバー起動
 
-		```npm start```
+		npm start
 
 	- POSTMAN 等を使用して http://localhost:8080/api/todos/ へいろいろリクエストを投げてみる
 
@@ -109,11 +109,11 @@
 
 	※テストコード実行後テストが終了しない不具合があり原因がわからないので Ctrl+C 等で強制終了してください
 
-		```npm test```
+		npm test
 
 	で全部のテストを行います
 
-		```npm test -- post-api-todos.test.ts```
+		npm test -- post-api-todos.test.ts
 
 	でファイル名を指定して単体でテストを行います
 

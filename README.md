@@ -13,19 +13,19 @@
 
 1. 必要なパッケージをインストール
 
-	`npm install`
+	```npm install```
 
 1. データベースのインストール 
 
-	・ Ubuntu パッケージを更新します。
+	- Ubuntu パッケージを更新します。
 
 	```sudo apt update```
 
-	・ PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
+	- PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		
 	```sudo apt install postgresql postgresql-contrib```
 
-	・ 管理者ユーザー postgres にパスワードを割り当てる
+	- 管理者ユーザー postgres にパスワードを割り当てる
 
 	```sudo passwd postgres```
 
@@ -34,13 +34,13 @@
 
 	※後に Prisma (.env ファイル) の設定で必要になります (ユーザー名 ユーザーパスワード データベース名)
 
-	・ postgres にアカウントを変更
+	- postgres にアカウントを変更
 
 	```sudo -i -u postgres```
 
 	ターミナルが postgres@user のような Postgresプロンプトにかわる
 
-	・ ユーザー作成	
+	- ユーザー作成	
 
 	```createuser -d -U postgres -P username```
 
@@ -49,7 +49,7 @@
 	(※このサンプルのデフォルト設定 ユーザー名 user パスワード user)
 	 データベース作成　
 
-	・データベース作成
+	-データベース作成
 
 	```createdb databasename --encoding=UTF-8 --owner=username```
 
@@ -57,7 +57,7 @@
 
 	(※このサンプルのデフォルト設定 データベース名 mydb ユーザー名 user)
 
-	・ データベース作成完了
+	- データベース作成完了
 	
 	```exit ```
 	
@@ -69,7 +69,7 @@
 
 1. Prisma の設定
 
-	・.env ファイルの設定
+	-.env ファイルの設定
 	
 	上記 4. でデフォルト設定で設定した場合（変更なし）
 
@@ -81,7 +81,7 @@
 
 	USERNAME USERPASSWORD DATABASENAME に上記 4. で設定した値を入力してください
 
-	・ Prisma クライアントの設定 
+	- Prisma クライアントの設定 
 
 	```npx prisma migrate dev --name init```
 
@@ -92,11 +92,11 @@
 
 
 1. サーバーの実行
-	・ サーバー起動
+	- サーバー起動
 
 	```npm start```
 
-	・ POSTMAN 等を使用して http://localhost:8080/api/todos/ へいろいろリクエストを投げてみる
+	- POSTMAN 等を使用して http://localhost:8080/api/todos/ へいろいろリクエストを投げてみる
 
 
 

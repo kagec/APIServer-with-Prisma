@@ -17,15 +17,15 @@
 
 1. データベースのインストール 
 
-	- Ubuntu パッケージを更新します。
+	1. Ubuntu パッケージを更新します。
 
 		```sudo apt update```
 
-	- PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
+	1. PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		
 		```sudo apt install postgresql postgresql-contrib```
 
-	- 管理者ユーザー postgres にパスワードを割り当てる
+	1. 管理者ユーザー postgres にパスワードを割り当てる
 
 		```sudo passwd postgres```
 

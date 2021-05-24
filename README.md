@@ -16,6 +16,7 @@
 	```npm install` ``
 
 1. データベースのインストール 
+
 	・ Ubuntu パッケージを更新します。
 
 	```sudo apt update```
@@ -44,6 +45,7 @@
 	```createuser -d -U postgres -P username```
 
 	username に作りたいユーザー名を入力、その後ユーザーパスワードも入力する
+
 	(※このサンプルのデフォルト設定 ユーザー名 user パスワード user)
 	 データベース作成　
 
@@ -52,6 +54,7 @@
 	```createdb databasename --encoding=UTF-8 --owner=username```
 
 	databasename にデータベースの名前を入力、username には上記で作成したユーザー名を入力
+	
 	(※このサンプルのデフォルト設定 データベース名 mydb ユーザー名 user)
 
 	・ データベース作成完了

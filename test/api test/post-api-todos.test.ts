@@ -1,4 +1,3 @@
-import prisma from '../client';
 import request from 'supertest';
 import app from '../../app';
 
@@ -13,16 +12,49 @@ describe('test POST /api/todos/', () => {
 		body: "test body",
 	}
 
-	test('post', async () => {
-		const res = await request(app)
-			.post("/api/todos")
-			.send(POST_DATA)
-			.set("Accept", "application/json")
-			.expect('Content-Type', /application\/json/)
-			.expect(200);
+	describe('post failure', () => {
+		test('no title', async () => {
+			const res = await request(app)
+				.post("/api/todos")
+				.send({
+					body: "test body",
+				})
+				.set("Accept", "application/json")
+				.expect('Content-Type', /application\/json/)
+				.expect(400);
+
+			expect(res.body).toEqual({
+				message: 'titleは必須です',
+			})
+		});
+
+		test('no body', async () => {
+			const res = await request(app)
+				.post("/api/todos")
+				.send({
+					title: "test title",
+				})
+				.set("Accept", "application/json")
+				.expect('Content-Type', /application\/json/)
+				.expect(400);
+
+			expect(res.body).toEqual({
+				message: 'bodyは必須です',
+			})
+		});
+	});
+	describe('post success', () => {
+		test('post success', async () => {
+			const res = await request(app)
+				.post("/api/todos")
+				.send(POST_DATA)
+				.set("Accept", "application/json")
+				.expect('Content-Type', /application\/json/)
+				.expect(200);
 	
-		expect(res.body.id).toBeDefined;
-		expect(res.body.title).toBe("test title");
-		expect(res.body.body).toBe("test body");
+			expect(res.body.id).toBeDefined;
+			expect(res.body.title).toBe(POST_DATA.title);
+			expect(res.body.body).toBe(POST_DATA.body);
+		});
 	});
 });

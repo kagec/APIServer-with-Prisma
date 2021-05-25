@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-// import { TodoInput, UpdateData } from '../src/@types/global';
 const prisma = new PrismaClient()
 import type { Prisma } from '@prisma/client';
 

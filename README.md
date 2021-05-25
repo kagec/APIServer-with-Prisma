@@ -36,7 +36,7 @@
 
 	1. postgres にアカウントを変更
 
-			sudo -i -u postgres
+			```sudo -i -u postgres```
 
 		ターミナルが postgres@user のような Postgresプロンプトにかわる
 

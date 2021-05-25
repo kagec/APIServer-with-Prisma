@@ -1,7 +1,5 @@
-import prisma from '../client';
 import request from 'supertest';
 import app from '../../app';
-
 
 // afterAll(async (done) => {
 // 	await prisma.$disconnect();

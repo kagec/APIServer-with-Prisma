@@ -9,7 +9,9 @@
 
 1. リポジトリのクローンをする
 
-			git clone https://github.com/kagec/APIServer-with-Prisma.git
+	``` sh
+	git clone https://github.com/kagec/APIServer-with-Prisma.git
+	```
 
 1. 必要なパッケージをインストール
 
@@ -36,7 +38,7 @@
 
 	1. postgres にアカウントを変更
 
-		```sudo -i -u postgres```
+			sudo -i -u postgres
 
 		ターミナルが postgres@user のような Postgresプロンプトにかわる
 

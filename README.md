@@ -7,30 +7,30 @@
 
 ※お使いの環境に合わせて変更してください
 
-## 1. リポジトリのクローンをする
+1. リポジトリのクローンをする
 
 		git clone https://github.com/kagec/APIServer-with-Prisma.git
 		
-## 1. 必要なパッケージをインストール
+1. 必要なパッケージをインストール
 
 		npm install
 
-## 1. データベースのインストール 
+1. データベースのインストール 
 
-### 1. Ubuntu パッケージを更新します。
+	1. Ubuntu パッケージを更新します。
 
-	sudo apt update
+			sudo apt update
 
-### 1. PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
+	1. PostgreSQL (およびいくつかの便利なユーティリティが含まれている -contrib パッケージ) をインストールします。
 		
-	sudo apt install postgresql postgresql-contrib
+			sudo apt install postgresql postgresql-contrib
 
-### 1. 管理者ユーザー postgres にパスワードを割り当てる
+	1. 管理者ユーザー postgres にパスワードを割り当てる
 
-	sudo passwd postgres
+			sudo passwd postgres
 
 
-## 1. データベースの設定
+1. データベースの設定
 
 	※後に Prisma (.env ファイル) の設定で必要になります (ユーザー名 ユーザーパスワード データベース名)
 
@@ -67,7 +67,7 @@
 	
 		を入力してPostgresプロンプトを終了
 
-## 1. Prisma の設定
+1. Prisma の設定
 
 	1. .env ファイルの設定
 	

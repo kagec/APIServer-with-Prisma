@@ -1,5 +1,7 @@
+# APIServer-with-Prisma
+REST API とデータベース連携の練習のためのリポジトリです
 
-# 導入方法
+## 導入方法
 
 ※このサンプルは Windows subsystem for Linux 上の Ubuntu 環境で作っています
 
@@ -91,7 +93,7 @@
 
 
 
-# サーバーの実行
+## サーバーの実行
 
 	1. サーバー起動
 
@@ -102,7 +104,7 @@
 
 
 
-# API のテストについて（test/api test）
+## API のテストについて（test/api test）
 
 ※テストを実行すると実際のデータベースのデータも変更されてしまいます
 

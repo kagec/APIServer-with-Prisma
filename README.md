@@ -106,15 +106,13 @@
 
 ※テストを実行すると実際のデータベースのデータも変更されてしまいます
 
-※PUT、DELETE API のテストをする際はデータを作った後コード内の VALID_ID を集して行ってください
-
 ※テストコード実行後テストが終了しない不具合があり原因がわからないので Ctrl+C等で強制終了してください
 
 	npm test
 
 で全部のテストを行います
 
-	npm test -- post-api-todos.test.ts
+	npm test post-api-todos.test.ts
 
 でファイル名を指定して単体でテストを行います
 

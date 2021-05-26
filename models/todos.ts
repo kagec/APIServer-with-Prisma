@@ -1,11 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
-import type { Prisma } from '@prisma/client';
-
-// Omitは対象の型から不要な型を除外できる
-type CreateTodo = Omit<Prisma.TodoCreateInput, 'createdAt' | 'updatedAt'>;
-type UpdateTodo = Omit<Prisma.TodoUpdateInput, 'createdAt' | 'updatedAt'> &
-  Prisma.TodoWhereUniqueInput;
+import type {CreateTodo, UpdateTodo} from '../src/@types/global'
 
 export const todo = {
 	 async findAll() {

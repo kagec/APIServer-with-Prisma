@@ -1,5 +1,4 @@
 import {todo} from '../../models/todos';
-import { prismaMock } from '../singleton';
 
 
 

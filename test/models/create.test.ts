@@ -1,15 +1,29 @@
 import {todo} from '../../models/todos';
+import type {CreateTodo} from '../../src/@types/global';
+
+
 
 describe('model create', () => {	
 	const CREATE_DATA = {
-		title: "test title",
-		body: "test body",
+		title: "test create title",
+		body: "test create body",
 	}
-	
-	// describe('failure', () => {
-	// 	test('', async () => {
-	// 	});
-	// });
+	const dataWithoutTitle = { body: CREATE_DATA.body } as CreateTodo;
+	const dataWithoutBody = { title: CREATE_DATA.title } as CreateTodo;
+
+	describe('failure', () => {
+		test('no title', async () => {
+			await expect(todo.create(dataWithoutTitle))
+				.rejects
+				.toThrowError(new Error('titleは必須です'));
+		});
+
+		test('no body', async () => {			
+			await expect(todo.create(dataWithoutBody))
+				.rejects
+				.toThrowError(new Error('bodyは必須です'));
+		});
+	});
 
 	describe('success', () => {
 		test('have id', async () => {
